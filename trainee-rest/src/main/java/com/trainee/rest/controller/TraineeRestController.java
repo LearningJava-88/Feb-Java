@@ -2,8 +2,15 @@ package com.trainee.rest.controller;
 
 import java.util.List;
 import java.util.Optional;
+/*import java.util.logging.Level;
+import java.util.logging.LogManager;
+import java.util.logging.Logger;*/
 
+/*import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;*/
 import org.modelmapper.ModelMapper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -27,20 +34,47 @@ import com.trainee.rest.repository.TraineeRepository;
 @RequestMapping("/dashboard/v1")
 public class TraineeRestController {
 	
+	/*
+	 * private final static Logger LOGGER =
+	 * Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
+	 
+	
+	 private LogManager lgmngr = LogManager.getLogManager();
+	 */
+	 
+//	private static final Logger logger = LogManager.getLogger(TraineeRestController.class);
+	
+	
+    final static Logger logger = LoggerFactory.getLogger(TraineeRestController.class);
+
+
+	  
+   
 	
 	@Autowired
 	private TraineeRepository rep;
-	
-	
+
 	@Autowired
 	private TraineeModelRepository modelRep;
 	
 	@Autowired
     private ModelMapper modelMapper;
-
 	
 		@GetMapping("/something")
 		public String getSomething() {
+
+			/*
+			 * LOGGER.log(Level.INFO,"Inside logging");
+			 * 
+			 * Logger log = lgmngr.getLogger(Logger.GLOBAL_LOGGER_NAME);
+			 * 
+			 * log.log(Level.INFO, "This is a log message");
+			 */
+              logger.info("I am in log4j2 logging info");
+              logger.debug("I am in log4j2 logging debug");
+              logger.error("I am in log4j2 logging error");
+		     
+		     
 			return "Hello Trianees";
 			
 		}
@@ -53,13 +87,14 @@ public class TraineeRestController {
 		@GetMapping("/traineemodel/{id}")
 		public TraineeModel getTrainees(@PathVariable("id") Integer id) {
 			Optional<TraineeModel> t =  modelRep.findByEmpid(id);
+			
+			
 			return t.get();
 		}
 		
 		
 		@PostMapping("/postTrainee")
 		public ResponseEntity<Trainees> insertRec(@RequestBody TraineeDto tra){
-			
 			 Trainees tr = modelMapper.map(tra, Trainees.class);
 			 rep.save(tr);
 			 
@@ -75,9 +110,9 @@ public class TraineeRestController {
 			 * traineeModel.setProj("DEVOPS-AWS");
 			 */
 			/*
-			 * traineeModel.setEffDate(model.getEffDate());
-			 * traineeModel.setEmpid(model.getEmpid());
-			 * traineeModel.setProj(model.getProj());
+			 * traineeModel.setEffDate(dto.getEffDate());
+			 * traineeModel.setEmpid(dto.getEmpid());
+			 * traineeModel.setProj(dto.getProj());
 			 */
 			
 			TraineeModel tr = modelRep.save(traineeModel);

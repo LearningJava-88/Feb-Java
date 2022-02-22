@@ -9,6 +9,5 @@ import com.trainee.rest.model.Trainees;
 
 public interface TraineeModelRepository extends JpaRepository<TraineeModel,Integer> {
 
-	
 	public Optional<TraineeModel> findByEmpid(Integer id);
 }
