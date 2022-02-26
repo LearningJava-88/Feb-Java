@@ -7,4 +7,26 @@
 	    <property name="abc" value="TRAINEE"/>
     </bean>
     
+    <bean class="com.test.main.Student" name="stud">
+      
+      
+       <property name="studentName">
+               <value> Ravi </value> 
+       </property>
+  
+       <property name="studentCourse">
+               <value> Spring Framework </value> 
+          </property>
+  
+    </bean>
+    
+    <bean id="another" class="com.test.main.AnotherStudent">  
+		<constructor-arg index="0" value="100"  ></constructor-arg>  
+        <constructor-arg index="1" value="RaviAnother"></constructor-arg>  
+	</bean> 
+    
+    
+    
+    
+    
 </beans> 

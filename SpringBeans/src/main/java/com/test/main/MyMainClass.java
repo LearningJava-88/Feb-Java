@@ -20,28 +20,32 @@ public class MyMainClass {
 		 
 		
 		
-		  
-		  AnnotationConfigApplicationContext ctx = new
-		  AnnotationConfigApplicationContext( MyConfiguration.class);
-		  MyService service
-		  = ctx.getBean(MyService.class);
-		  
-		  System.out.println("==============Annotation here============== "+service.
-		  getAbc());
-		  
-		  ctx.close();
+		/*
+		 * AnnotationConfigApplicationContext ctx = new
+		 * AnnotationConfigApplicationContext( MyConfiguration.class); MyService service
+		 * = ctx.getBean(MyService.class);
+		 * 
+		 * System.out.println("==============Annotation here============== "+service.
+		 * getAbc());
+		 * 
+		 * ctx.close();
+		 */
 		 
 		
-			/*
-			 * ApplicationContext app = new
-			 * ClassPathXmlApplicationContext("test-beans.xml");
-			 * 
-			 * MyService service_1 = app.getBean(MyService.class);
-			 * 
-			 * System.out.println("==================="+"Beans XML Trainee"
-			 * +"==============="+service_1.getAbc());
-			 * 
-			 */
+			
+			  ApplicationContext app = new
+			  ClassPathXmlApplicationContext("test-beans.xml");
+			  
+			  MyService service_1 = app.getBean(MyService.class);
+			  
+			  System.out.println("==================="+"Beans XML Trainee"
+			  +"==============="+service_1.getAbc());
+			  Student student= (Student)app.getBean("stud");
+			  System.out.println("Student : "+student.getStudentName());
+			  
+			  AnotherStudent another= (AnotherStudent)app.getBean("another");
+			  System.out.println("Student : "+another.getStudentName());
+			 
 		
 	}
 

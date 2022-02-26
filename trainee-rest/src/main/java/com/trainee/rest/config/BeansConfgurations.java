@@ -11,4 +11,5 @@ public class BeansConfgurations {
 	public ModelMapper mapper() {
 		return new ModelMapper();
 	}
+	
 }

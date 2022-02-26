@@ -1,6 +1,8 @@
 package com.trainee.rest.dto;
 
+
 public class TraineeDto {
+	
 	
 	private Integer id;
 	

@@ -7,3 +7,5 @@ import com.trainee.rest.model.Trainees;
 public interface TraineeRepository extends JpaRepository<Trainees, Integer> {
 
 }
+
+
