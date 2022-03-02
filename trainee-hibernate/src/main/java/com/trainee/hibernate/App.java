@@ -12,8 +12,10 @@ public class App {
 		
 		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
 		StudentService student = context.getBean("studentService",StudentService.class);
-		student.save();
+//		student.save();
 		// Close the context
+		student.retrieve();
+		student.retrieveUsingCriteria();
 		context.close();
 	}
 }

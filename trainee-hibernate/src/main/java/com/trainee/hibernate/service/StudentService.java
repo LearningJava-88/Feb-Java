@@ -15,4 +15,13 @@ public class StudentService{
 	public void save() {
 		studentDao.save();
 	}
+	
+	public void retrieve() {
+	   studentDao.retrieve();
+	}
+	
+	public void retrieveUsingCriteria() {
+		studentDao.retrieveUsingCriteria();
+	}
+	
 }
